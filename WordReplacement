@@ -1,0 +1,30 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        String str1 = new String ("любовь прекрасна, любовь изящна, любовь чарует "); // исходное предложение
+        System.out.println("Исходное предложение = " + str1); // печать исходного предложения
+        String str2 = new String ("любовь"); // что будет меняться
+        String str3 = new String ("она");    // на что будет замено вышеуказанное слово
+        String str4 = new String ();
+        String str5 = new String ();
+
+        do {                           // цикл с постусловием для замены слова
+            for (int k=0; k<str1.length();) {
+                k = str1.indexOf(" ");
+                str4 = str1.substring(0,k);
+                str4 = str4.trim();
+                if (str4.equals(str2))
+                    str5 = str5.concat(str3 + " ");
+                else str5 = str5.concat(str4 + " ");
+                str1 = str1.substring(k+1);
+            }
+        }
+        while (str1.indexOf(" ") != -1);
+
+        System.out.println ("Новое предложение с замененным словом: ");
+        System.out.println (str5);
+
+    }
+}

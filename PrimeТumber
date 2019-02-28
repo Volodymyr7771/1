@@ -1,0 +1,50 @@
+package com.company;
+
+public class Main {
+
+    // метод определения простого числа
+    static boolean ger(int x){
+        int z = 0; // счетчик
+        int del = 0;
+
+        for(int j = 2; j < x; j++){
+
+            del = x%j;
+            if (del == 0) z = z + 1;
+
+        }
+        if (z >= 1) return false;
+        else return true;
+    }
+
+
+    public static void main(String[] args) {
+
+        int mass [] = new int [100];
+        int a = 2; // первое простое число
+        //boolean b = false;
+        mass[0] = 2; //
+
+        // цикл присваивания простых чисел
+        for (int i = 1; i < 100; i++){
+            boolean b = false;
+
+            // цикл с предусловием для определения ближайшего простого числа после текущего простого числа a
+            while (!b) {
+                a = a + 1;
+                b = ger(a);
+            }
+
+
+            mass[i] = a;
+            a = a + 1;
+        }
+
+        System.out.println("Постые числа");
+
+        // цикл отображения элементов массива
+        for (int i = 0; i < 100; i++){
+            System.out.println( (i+1) + "-й член массива простых чисел - " + mass[i]);
+        }
+    }
+}

@@ -1,0 +1,32 @@
+public class TriangleMass {
+
+    public static void main(String[] args) {
+
+        //
+        int [][] mass = new int[10][];
+        //
+        for (int i = 0; i < 10 ; i++ ) mass[i] = new int[i+1];
+
+        //Цикл присваивания значений для каждого элемента массива
+        for (int i = 0; i < 10 ; i++ ){
+
+            // Вложенный цикл присваивания крайним элементам равным 1
+            for (int j = 0; j < mass[i].length; j++) {
+                if(j == 0) mass[i][j]=1;
+                if(i == j) mass[i][j]=1;
+            }
+
+            //Вложенный цикл присваивания "внутренним" элементам значений
+            for (int j = 1; j < (mass[i].length-1); j++) {
+                mass[i][j] = mass[i-1][j-1]+mass[i-1][j];
+            }
+
+        }
+
+        // Цикл вывода значений элементов массива
+        for (int i = 0; i < 10 ; i++ ){
+            System.out.println();
+            for (int j = 0; j < mass[i].length; j++) System.out.print(mass[i][j]+ " ");
+        }
+    }
+}

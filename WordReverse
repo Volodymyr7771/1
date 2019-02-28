@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class WordReverse {
+
+    public static void main(String[] args) {
+
+        Scanner st = new Scanner(System.in); //Введение слова
+        System.out.print("Введите слово: ");
+        String slovo = st.nextLine();
+        System.out.println(slovo); // Печать введенного слова
+
+        char[] strToArray = slovo.toCharArray(); // Преобразуем строку slovo в массив символов (char)
+
+        System.out.print("\nCлово с обратном порядке: ");
+        int k = strToArray.length;
+        for (int i = (k-1); i >-1; i--){          // Печать слова в обратоном порядке
+            System.out.print(strToArray[i]);
+        }
+        System.out.println();
+
+    }
+}
